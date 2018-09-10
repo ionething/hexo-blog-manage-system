@@ -48,9 +48,10 @@ Heox Blog Manage System 是基于flask搭建的hexo博客管理系统，简单�
 - etc.
 
 # 参考文档和项目
-[官方文档](https://dormousehole.readthedocs.io/en/latest/ "官方文档")
-[官方例子flaskr](https://github.com/pallets/flask/tree/master/examples/tutorial/ "官方例子flaskr")
-[开源项目flask-admin](https://github.com/flask-admin/flask-admin.git "开源项目")
+- [官方文档](https://dormousehole.readthedocs.io/en/latest/ "官方文档")
+- [官方例子flaskr](https://github.com/pallets/flask/tree/master/examples/tutorial/ "官方例子flaskr")
+- [开源项目flask-admin](https://github.com/flask-admin/flask-admin.git "开源项目")
+
 # Licence
 [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0 "http://www.apache.org/licenses/LICENSE-2.0")
 
