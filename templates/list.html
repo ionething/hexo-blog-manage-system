@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}博客{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="page-header">
+      <div class="row">
+          <h2 class="col-sm-8">博客列表</h2>
+          <h2 class="col-sm-4 text-right">
+              <a role="button" class="btn btn-info btn-sm" href="{{ url_for('blog.edit') }}">新增</a>
+          </h2>
+      </div>
+    </div>
+
+    <table class="table">
+        <tbody>
+            {% if blogs %}
+                {% for item in blogs %}
+                     <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ item }}</td>
+                        <td class="text-right">
+                            <a role="button" class="btn btn-danger btn-xs" href="{{ url_for('blog.edit') }}?name={{ item |urlencode()}}">删除</a>
+                            <a role="button" class="btn btn-success btn-xs" href="{{ url_for('blog.edit') }}?name={{ item |urlencode()}}">编辑</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

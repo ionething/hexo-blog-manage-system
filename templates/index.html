@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}首页{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">服务器信息</h3>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>系统名称</th>
+                                <td>{{ os.uname() }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

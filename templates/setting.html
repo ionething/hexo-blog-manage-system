@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}设置{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="page-header">
+      <h2>设置<small></small></h2>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td></td>
+                <td>类型</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% if settings %}
+                {% for item in settings %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ item.setting_name }}</td>
+                        <td>
+                            <form id="settingForm{{ loop.index }}">
+                                <input type="hidden" name="setting_key" value="{{ item.setting_key }}">
+                                <input type="text" class="form-control" name="setting_value" value="{{ item.setting_value }}">
+                            </form>
+                        </td>
+                        <td class="text-right">
+                            <button type="button" class="btn btn-success btn-sm" onclick="saveSetting(this, 'settingForm{{ loop.index }}')">保存</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function saveSetting(btn, id){
+        var $form = $('#' + id);
+        $form.find('input[type="text"]').attr('readonly', true);
+        var $btn = $(btn).button('loading');
+        $.ajax({
+            url: $SCRIPT_ROOT + '/saveSetting',
+            type: 'POST',
+            dataType: 'json',
+            data: $form.serialize(),
+            complete: function () {
+                $form.find('input[type="text"]').attr('readonly', false);
+                $btn.button('reset');
+            },
+            success: function (data) {
+                if(data.state == 200) {
+                    layer.msg(data.msg, {icon: 1});
+                } else {
+                    layer.msg(data.msg, {icon: 2});
+                }
+            },
+            error: function (e) {
+                layer.msg('请求异常', {icon: 2});
+            }
+        });
+    }
+</script>
+{% endblock %}
