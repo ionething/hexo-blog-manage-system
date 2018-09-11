@@ -27,4 +27,4 @@ create table user
 
 INSERT INTO user (id, username, password) VALUES (1, 'admin', 'admin');
 
-INSERT INTO setting (id, setting_key, setting_value, setting_name, setting_index) VALUES (1, 'blog.dir', '/home/dir', '目录', 1);
+INSERT INTO setting (id, setting_key, setting_value, setting_name, setting_index) VALUES (1, 'blog.dir', '/home/work', '目录', 1);
